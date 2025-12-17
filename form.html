@@ -25,17 +25,9 @@
 <h2>Course Presentation & Projects</h2>
 
 <div class="task-list">
-  <button onclick="window.open('https://docs.google.com/presentation/d/1Z9LlyWdBZqf7bv-QwKBmmzEfQ0Cb961Q/edit')">
-    Course Presentation
-  </button>
-
-  <button onclick="window.open('https://drive.google.com/file/d/1ZgiQ5a3ayI0zKPWUZRG2-GB7zI6ydZCi/view')">
-    Odin Project
-  </button>
-
-  <button onclick="window.open('https://oinkct.readdy.co')">
-    Mini Project
-  </button>
+  <button onclick="window.open('https://docs.google.com/presentation/d/1Z9LlyWdBZqf7bv-QwKBmmzEfQ0Cb961Q/edit')">Course Presentation</button>
+  <button onclick="window.open('https://drive.google.com/file/d/1ZgiQ5a3ayI0zKPWUZRG2-GB7zI6ydZCi/view')">Odin Project</button>
+  <button onclick="window.open('https://oinkct.readdy.co')">Mini Project</button>
 </div>
 
 <button class="home-btn" onclick="location.href='index.html'">🏠 Home</button>
@@ -44,9 +36,12 @@
 
 <script>
 function showTable(){
+  let table = document.getElementById("table");
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
   table.innerHTML =
     "<tr><th>Name</th><th>Email</th></tr>" +
-    "<tr><td>"+name.value+"</td><td>"+email.value+"</td></tr>";
+    "<tr><td>"+name+"</td><td>"+email+"</td></tr>";
 }
 </script>
 
