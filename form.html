@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<form onsubmit="return false">
+Name: <input id="name" required><br>
+Email: <input id="email" required><br>
+<button onclick="showTable()">Submit</button>
+<button type="reset">Reset</button>
+</form>
+
+<table border="1" id="table"></table>
+
+<h3>Course Tasks</h3>
+<button onclick="window.open('https://docs.google.com/presentation/d/1Z9LlyWdBZqf7bv-QwKBmmzEfQ0Cb961Q/edit')">
+Presentation
+</button>
+
+<button onclick="window.open('https://drive.google.com/file/d/1ZgiQ5a3ayI0zKPWUZRG2-GB7zI6ydZCi/view')">
+Odin Project
+</button>
+
+<button onclick="window.open('https://oinkct.readdy.co')">
+Mini Project
+</button>
+
+<br><br>
+<button onclick="location.href='index.html'">Home</button>
+
+<script>
+function showTable(){
+ table.innerHTML="<tr><td>"+name.value+"</td><td>"+email.value+"</td></tr>";
+}
+</script>
+
+</body>
+</html>
