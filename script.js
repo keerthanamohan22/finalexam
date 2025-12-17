@@ -1,4 +1,3 @@
-/* ---------- GLOBAL ARRAY ---------- */
 let arr = [];
 
 /* 1. Reverse words in a sentence */
@@ -8,195 +7,166 @@ function reverseSentence(){
   alert(s.split(" ").reverse().join(" "));
 }
 
-/* 2. Extract first and last character */
+/* 2. First & last character */
 function firstLastChar(){
   let s = prompt("Enter a string");
   if(!s) return;
-  alert("First: " + s[0] + "\nLast: " + s[s.length-1]);
+  alert("First: "+s[0]+" | Last: "+s[s.length-1]);
 }
 
-/* 3. Find longest word */
+/* 3. Longest word */
 function longestWord(){
   let s = prompt("Enter a sentence");
   if(!s) return;
   let words = s.split(" ");
   let longest = words.reduce((a,b)=>a.length>b.length?a:b);
-  alert("Longest word: " + longest);
+  alert("Longest word: "+longest);
 }
 
-/* 4. Convert to Title Case */
+/* 4. Title Case */
 function titleCase(){
   let s = prompt("Enter text");
   if(!s) return;
-  alert(s.replace(/\b\w/g, c => c.toUpperCase()));
+  alert(s.replace(/\b\w/g,c=>c.toUpperCase()));
 }
 
 /* 5. Replace a word */
 function replaceWord(){
-  let s = prompt("Enter sentence");
-  let oldW = prompt("Word to replace");
-  let newW = prompt("New word");
-  if(!s || !oldW || !newW) return;
-  alert(s.replace(oldW, newW));
+  let s=prompt("Sentence"),oldW=prompt("Word to replace"),newW=prompt("New word");
+  if(!s||!oldW||!newW)return;
+  alert(s.replace(oldW,newW));
 }
 
 /* 6. Count vowels */
 function countVowels(){
-  let s = prompt("Enter string");
-  if(!s) return;
-  let count = (s.match(/[aeiouAEIOU]/g) || []).length;
-  alert("Vowel count: " + count);
+  let s=prompt("Enter string");
+  if(!s)return;
+  alert("Vowels: "+(s.match(/[aeiouAEIOU]/g)||[]).length);
 }
 
-/* 7. Create array from input */
+/* 7. Create array */
 function createArray(){
-  let input = prompt("Enter values separated by commas");
-  if(!input) return;
-  arr = input.split(",");
-  alert("Array created: " + arr);
+  let input=prompt("Enter values comma separated");
+  if(!input)return;
+  arr=input.split(",");
+  alert("Array: "+arr);
 }
 
-/* 8. Display third element */
+/* 8. Third element */
 function thirdElement(){
-  if(arr.length < 3){
-    alert("Array has less than 3 elements");
-    return;
-  }
-  alert("Third element: " + arr[2]);
+  if(arr.length<3) { alert("Array too short"); return; }
+  alert("Third element: "+arr[2]);
 }
 
-/* 9. Find last element */
+/* 9. Last element */
 function lastElement(){
-  if(arr.length === 0){
-    alert("Array is empty");
-    return;
-  }
-  alert("Last element: " + arr[arr.length-1]);
+  if(arr.length===0) { alert("Empty array"); return; }
+  alert("Last element: "+arr[arr.length-1]);
 }
 
-/* 10. Find index of a given element */
+/* 10. Find index */
 function findIndex(){
-  let val = prompt("Enter element to find index");
-  let idx = arr.indexOf(val);
-  if(idx === -1) alert("Element not found");
-  else alert("Index: " + idx);
+  let val=prompt("Element to find");
+  let idx=arr.indexOf(val);
+  alert(idx==-1?"Not found":"Index: "+idx);
 }
 
-/* 11. Apply map() to square each element */
+/* 11. Square each element */
 function squareArray(){
-  if(arr.length === 0) { alert("Array empty"); return; }
-  let squares = arr.map(x => Number(x)*Number(x));
-  alert("Squared array: " + squares);
+  if(arr.length===0){ alert("Empty array"); return; }
+  alert("Squared: "+arr.map(x=>Number(x)*Number(x)));
 }
 
-/* 12. Sort array ascending */
+/* 12. Sort ascending */
 function sortArray(){
-  if(arr.length === 0) { alert("Array empty"); return; }
-  let sorted = arr.sort((a,b)=>a-b);
-  alert("Sorted array: " + sorted);
+  if(arr.length===0){ alert("Empty array"); return; }
+  alert("Sorted: "+arr.sort((a,b)=>a-b));
 }
 
-/* 13. Use splice to replace elements */
+/* 13. Splice replace */
 function spliceReplace(){
-  if(arr.length < 2){ alert("Array too small"); return; }
+  if(arr.length<2){ alert("Array too small"); return; }
   arr.splice(1,1,99);
-  alert("After splice replace: " + arr);
+  alert("After splice replace: "+arr);
 }
 
-/* 14. Splice delete + insert simultaneously */
+/* 14. Splice delete+insert */
 function spliceDeleteInsert(){
-  if(arr.length < 3){ alert("Array too small"); return; }
+  if(arr.length<3){ alert("Array too small"); return; }
   arr.splice(2,1,55);
-  alert("After splice delete+insert: " + arr);
+  alert("After splice delete+insert: "+arr);
 }
 
-/* 15. Arithmetic operations based on user choice */
+/* 15. Arithmetic */
 function calculator(){
-  let a = Number(prompt("Enter first number"));
-  let b = Number(prompt("Enter second number"));
-  let op = prompt("Enter operator (+, -, *, /)");
-  let result;
-  switch(op){
-    case "+": result=a+b; break;
-    case "-": result=a-b; break;
-    case "*": result=a*b; break;
-    case "/": result=b!=0?a/b:"Cannot divide by 0"; break;
-    default: result="Invalid operator";
-  }
-  alert("Result: " + result);
+  let a=Number(prompt("Num1")),b=Number(prompt("Num2")),op=prompt("Operator + - * /"),res;
+  switch(op){ case "+": res=a+b; break; case "-": res=a-b; break; case "*": res=a*b; break; case "/": res=b!=0?a/b:"Cannot divide by 0"; break; default: res="Invalid"; }
+  alert("Result: "+res);
 }
 
-/* 16. Calculate factorial */
+/* 16. Factorial */
 function factorial(){
-  let n = Number(prompt("Enter number"));
-  if(n<0){ alert("Negative number"); return; }
-  let f=1;
-  for(let i=1;i<=n;i++) f*=i;
-  alert("Factorial: " + f);
+  let n=Number(prompt("Enter number"));
+  if(n<0){ alert("Negative"); return; }
+  let f=1; for(let i=1;i<=n;i++) f*=i;
+  alert("Factorial: "+f);
 }
 
-/* 17. Check even/odd */
+/* 17. Even/Odd */
 function evenOdd(){
-  let n = Number(prompt("Enter number"));
+  let n=Number(prompt("Enter number"));
   alert(n%2===0?"Even":"Odd");
 }
 
-/* 18. Max of 3 numbers */
+/* 18. Max of 3 */
 function maxOfThree(){
-  let a = Number(prompt("Enter first"));
-  let b = Number(prompt("Enter second"));
-  let c = Number(prompt("Enter third"));
-  alert("Maximum: " + Math.max(a,b,c));
+  let a=Number(prompt("1")),b=Number(prompt("2")),c=Number(prompt("3"));
+  alert("Max: "+Math.max(a,b,c));
 }
 
-/* 19. Sum of array values */
+/* 19. Sum array */
 function sumArray(){
-  if(arr.length === 0){ alert("Array empty"); return; }
-  let sum = arr.reduce((acc,val)=>acc+Number(val),0);
-  alert("Sum: " + sum);
+  if(arr.length===0){ alert("Empty array"); return; }
+  alert("Sum: "+arr.reduce((a,b)=>a+Number(b),0));
 }
 
-/* 20. Allow only 10 digits input */
+/* 20. 10 digits only */
 function tenDigits(){
-  let num = prompt("Enter 10-digit number");
-  if(!num){ alert("Empty"); return; }
-  alert(num.length===10?"Valid 10 digits":"Invalid number length");
+  let n=prompt("Enter 10-digit number");
+  alert(n.length===10?"Valid":"Invalid");
 }
 
-/* 21. Detect numeric vs string */
+/* 21. Number/String */
 function numOrString(){
-  let val = prompt("Enter value");
+  let val=prompt("Enter value");
   alert(isNaN(val)?"String":"Number");
 }
 
-/* 22. Password min length validation */
+/* 22. Password validation */
 function passwordCheck(){
-  let p = prompt("Enter password");
-  if(!p){ alert("Empty"); return; }
-  alert(p.length>=6?"Password valid":"Password too short");
+  let p=prompt("Password");
+  if(!p) return;
+  alert(p.length>=6?"Valid":"Too short");
 }
 
-/* 23. Required field not empty */
+/* 23. Required field */
 function requiredField(){
-  let val = prompt("Enter value");
-  alert(val? "OK" : "Required field empty");
+  let val=prompt("Enter value");
+  alert(val?"OK":"Required empty");
 }
 
-/* 24-26 handled via form page */
-
-/* 27. Create person object & update age */
+/* 27-28. Object update */
 function objectUpdate(){
-  let person = {name:"Keerthana", age:20};
-  let newAge = Number(prompt("Enter new age"));
-  if(!newAge) { alert("No age entered"); return; }
-  person.age = newAge;
-  alert("Updated object: " + JSON.stringify(person));
+  let person={name:"Keerthana",age:20};
+  let a=Number(prompt("New age"));
+  if(!a) return;
+  person.age=a;
+  alert("Updated: "+JSON.stringify(person));
 }
 
-/* 30. Hover event change style */
-function hoverEffect(b){
-  b.style.background="orange";
-}
-function removeHover(b){
-  b.style.background="";
-}
+/* 30. Hover effect */
+function hoverEffect(b){ b.style.background="orange"; }
+function removeHover(b){ b.style.background=""; }
+
+/* 29. Countdown timer placeholder */
+function countdownTimer(){ alert("Countdown timer feature can be implemented separately."); }
